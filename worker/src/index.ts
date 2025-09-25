@@ -159,13 +159,13 @@ function adminPage(): string {
         rows.innerHTML = '';
         for (const r of (data.leads || [])) {
           const tr = document.createElement('tr');
-          tr.innerHTML = `<td>
-            ${r.createdAt?.replace('T',' ').replace('Z','')}<div class="muted">${r.id}</div>
-          </td>
-          <td>${escape(r.name)}</td>
-          <td><a href="mailto:${escape(r.email)}">${escape(r.email)}</a></td>
-          <td>${escape(r.company || '')}</td>
-          <td><div style="max-width:600px; white-space:pre-wrap;">${escape(r.message || '')}</div></td>`;
+          tr.innerHTML = '<td>' +
+            (r.createdAt?.replace('T',' ').replace('Z','')) + '<div class="muted">' + r.id + '</div>' +
+          '</td>' +
+          '<td>' + escape(r.name) + '</td>' +
+          '<td><a href="mailto:' + escape(r.email) + '">' + escape(r.email) + '</a></td>' +
+          '<td>' + escape(r.company || '') + '</td>' +
+          '<td><div style="max-width:600px; white-space:pre-wrap;">' + escape(r.message || '') + '</div></td>';
           rows.appendChild(tr);
         }
         status.textContent = 'Loaded ' + (data.leads?.length || 0) + ' lead(s).';
