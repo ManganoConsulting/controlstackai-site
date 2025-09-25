@@ -7,3 +7,18 @@ CORS_ALLOW_ORIGIN = "https://controlstackai.com"
 
 [observability]
 enabled = true
+
+[[env.staging.d1_databases]]
+binding = "DB"                          # must match env.DB in your Worker code
+database_name = "controlstackai_db_staging"
+database_id = "f962ada1-7ce8-4459-a5bb-c02ea75f6f9e"
+
+[env.staging.vars]
+CORS_ALLOW_ORIGIN = "https://controlstackai.com"
+
+[env.production]
+# other prod vars...
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "controlstackai_db_prod"
+database_id = "e306ed22-2253-41bc-82a0-a06e93f3daaa"
