@@ -1,0 +1,9 @@
+name = "controlstackai-api"
+main = "src/index.ts"
+compatibility_date = "2025-09-25"
+
+[vars]
+CORS_ALLOW_ORIGIN = "https://controlstackai.com"
+
+[observability]
+enabled = true

@@ -1,4 +1,3 @@
--- D1 schema for contact leads
 CREATE TABLE IF NOT EXISTS leads (
   id TEXT PRIMARY KEY,
   createdAt TEXT NOT NULL,

@@ -9,7 +9,6 @@ export const onRequestPost: PagesFunction<{ DB: D1Database }> = async (context) 
     if (!name || !email || !message) {
       return new Response("Missing fields", { status: 400 });
     }
-    // Save to D1 if bound; otherwise no-op so the form still works.
     if (env.DB && env.DB.exec) {
       await env.DB.exec(`CREATE TABLE IF NOT EXISTS leads (
         id TEXT PRIMARY KEY,
@@ -25,10 +24,7 @@ export const onRequestPost: PagesFunction<{ DB: D1Database }> = async (context) 
         .bind(id, createdAt, name, email, company, message)
         .run();
     }
-    return new Response(JSON.stringify({ ok: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { "Content-Type": "application/json" } });
   } catch (err) {
     return new Response("Error", { status: 500 });
   }
