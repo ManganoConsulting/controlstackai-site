@@ -4,6 +4,10 @@ compatibility_date = "2025-09-25"
 
 [vars]
 CORS_ALLOW_ORIGIN = "https://controlstackai.com"
+# Non-secret config (secrets should be set with `wrangler secret put`):
+MAIL_FROM = "matthew@mangano-consulting.com"
+MAIL_TO = "matthew@mangano-consulting.com"
+TURNSTILE_SITE_KEY = ""
 
 [observability]
 enabled = true
@@ -15,6 +19,9 @@ database_id = "f962ada1-7ce8-4459-a5bb-c02ea75f6f9e"
 
 [env.staging.vars]
 CORS_ALLOW_ORIGIN = "https://controlstackai.com"
+MAIL_FROM = "matthew@mangano-consulting.com"
+MAIL_TO = "matthew@mangano-consulting.com"
+TURNSTILE_SITE_KEY = ""
 
 [env.production]
 # other prod vars...
