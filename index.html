@@ -1,51 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>ControlStackAI — Agentic AI workflows for engineering teams</title><meta name="description" content="Plan. Execute. Verify. Ship. We build AI assistants and modernize MATLAB/Simulink tooling so your team delivers faster—with audit trails and CI guardrails."/>
-<meta property="og:title" content="ControlStackAI — Agentic AI workflows for engineering teams"/><meta property="og:description" content="Plan. Execute. Verify. Ship. We build AI assistants and modernize MATLAB/Simulink tooling so your team delivers faster—with audit trails and CI guardrails."/>
-<meta property="og:image" content="/assets/banner-1584x396.png"/>
-<link rel="icon" href="/assets/logo.svg" type="image/svg+xml"/>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="/styles/tailwind-cdn.js"></script>
-<style>.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(6px);}</style>
-</head><body class="bg-ink text-slate-100 antialiased selection:bg-accent/30 selection:text-ink">
 
-<header class="sticky top-0 z-50 border-b border-white/5 bg-ink/80 backdrop-blur">
-  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-3"><img src="/assets/logo.svg" class="h-8 w-auto" alt="ControlStackAI"/></a>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="/services.html" class="hover:text-white">Services</a>
-      <a href="/about.html" class="hover:text-white">About</a>
-      <a href="/contact.html" class="hover:text-white">Contact</a>
-    </nav>
-    <a href="/contact.html" class="inline-flex items-center rounded-xl bg-accent/90 px-4 py-2 text-ink font-semibold hover:bg-accent">Book a consult</a>
-  </div>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ControlStack AI — Agentic AI, Machine Learning, Deep Learning</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/modern.css">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="logo" href="/"><img src="/assets/logo.svg" alt="ControlStack AI logo"><span>ControlStack AI</span></a>
+    <div class="links">
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
 </header>
-<section class="relative overflow-hidden">
-  <img src="/assets/banner-3200x800.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20"/>
-  <div class="relative mx-auto max-w-7xl px-4 py-28">
-    <div class="max-w-3xl">
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">ControlStackAI</h1>
-      <p class="mt-5 text-lg md:text-xl text-slate-300">Plan. Execute. Verify. Ship. We build AI assistants and modernize MATLAB/Simulink tooling so your team delivers faster—with audit trails and CI guardrails.</p>
-      <div class="mt-8 flex gap-3">
-        <a href="/contact.html" class="rounded-xl bg-accent/90 px-5 py-3 text-ink font-semibold hover:bg-accent">Start a project</a>
-        <a href="/services.html" class="rounded-xl border border-white/10 px-5 py-3 text-white hover:bg-white/5">See capabilities</a>
+
+<main>
+  <section class="hero container">
+    <div class="hero-content">
+      <h1 class="headline">Agentic AI for Operations & Engineering</h1>
+      <p class="subhead">
+        We design autonomous <em>agent</em> workflows that plan, act, and learn—
+        then back them with proven Machine Learning and Deep Learning systems.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/contact.html">Start a project</a>
+        <a class="btn btn-ghost" href="/services.html">Explore capabilities</a>
       </div>
     </div>
+    <div class="hero-art">
+      <img src="/assets/hero-mesh.svg" alt="Abstract AI network graphic" width="1280" height="720" loading="eager" />
+    </div>
+  </section>
+
+  <section class="capabilities container">
+    <div class="grid">
+      <article class="card">
+        <h3>Agentic AI Systems</h3>
+        <p>Tool-using AI that breaks goals into steps, calls APIs, checks results, and improves with feedback.</p>
+        <ul>
+          <li>Multi-step planning & tool use</li>
+          <li>Automations over APIs/Workers</li>
+          <li>Human-in-the-loop controls</li>
+        </ul>
+        <a href="/services.html#agentic" class="link">Learn more →</a>
+      </article>
+      <article class="card">
+        <h3>Machine Learning</h3>
+        <p>From classic models to time-series forecasting and anomaly detection tailored to your data.</p>
+        <ul>
+          <li>Feature engineering</li>
+          <li>Evaluation & validation</li>
+          <li>Productionization</li>
+        </ul>
+        <a href="/services.html#ml" class="link">Learn more →</a>
+      </article>
+      <article class="card">
+        <h3>Deep Learning</h3>
+        <p>Vision, sequence models, and embeddings for retrieval and decision support.</p>
+        <ul>
+          <li>RAG & vector search</li>
+          <li>Vision & multimodal</li>
+          <li>Fine-tuning & adapters</li>
+        </ul>
+        <a href="/services.html#dl" class="link">Learn more →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="agent-loop container">
+    <h2>How an Agent Works</h2>
+    <figure class="agent-diagram">
+      <svg viewBox="0 0 800 180" aria-label="Agent loop" width="100%" height="180">
+        <defs>
+          <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M0,0 L12,6 L0,12 z" fill="#7C4DFF"/>
+          </marker>
+        </defs>
+        <g class="nodes">
+          <circle cx="100" cy="90" r="36" class="node"/><text x="100" y="95" class="label">Plan</text>
+          <circle cx="300" cy="90" r="36" class="node"/><text x="300" y="95" class="label">Act</text>
+          <circle cx="500" cy="90" r="36" class="node"/><text x="500" y="95" class="label">Observe</text>
+          <circle cx="700" cy="90" r="36" class="node"/><text x="700" y="95" class="label">Learn</text>
+        </g>
+        <g class="arrows">
+          <path d="M136,90 L264,90" class="arrow" marker-end="url(#arrow)"/>
+          <path d="M336,90 L464,90" class="arrow" marker-end="url(#arrow)"/>
+          <path d="M536,90 L664,90" class="arrow" marker-end="url(#arrow)"/>
+          <path d="M700,54 C700,20 100,20 100,54" class="arrow" marker-end="url(#arrow)"/>
+        </g>
+      </svg>
+    </figure>
+    <p class="muted">
+      Agents decompose goals, call tools/APIs, verify outcomes, and refine the next step—safely and audibly.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div>© 2025 ControlStack AI. All rights reserved.</div>
+    <div style="margin-top:6px">Imagery: replace <code>assets/hero-mesh.svg</code> with your preferred artwork (AVIF/WebP/SVG).</div>
   </div>
-</section>
-<section class="mx-auto max-w-7xl px-4 py-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-  <div class="glass rounded-2xl p-6 border border-white/5"><div class="text-lg font-semibold text-white">Agentic coding assistants</div><p class="mt-2 text-slate-400">Plan → execute → verify changes, open PRs, and pass CI—Safety/QA mode and audit trails.</p></div>
-  <div class="glass rounded-2xl p-6 border border-white/5"><div class="text-lg font-semibold text-white">MATLAB/Simulink tooling & integration</div><p class="mt-2 text-slate-400">Custom tooling, automation, and workflow integrations — 6-DOF modeling & control-design.</p></div>
-  <div class="glass rounded-2xl p-6 border border-white/5"><div class="text-lg font-semibold text-white">GitOps on bare metal</div><p class="mt-2 text-slate-400">Talos, Rook-Ceph, Cilium, MetalLB, ArgoCD—observability with Prometheus/Grafana/Hubble.</p></div>
-  <div class="glass rounded-2xl p-6 border border-white/5"><div class="text-lg font-semibold text-white">Retrieval you can trust</div><p class="mt-2 text-slate-400">Scoped RAG over your repos/specs with citations; small, reliable systems.</p></div>
-</section>
-<footer class="mt-24 border-t border-white/5">
-  <div class="mx-auto max-w-7xl px-4 py-10 grid gap-6 md:grid-cols-3 text-sm text-slate-400">
-    <div><div class="text-white font-semibold">ControlStackAI</div><div class="text-slate-400">Agentic AI workflows for engineering teams</div></div>
-    <div><div class="font-semibold text-slate-300 mb-2">Contact</div><div><a href="mailto:matthew@mangano-consulting.com" class="hover:text-white">matthew@mangano-consulting.com</a></div></div>
-    <div><div class="font-semibold text-slate-300 mb-2">Legal</div><a class="block hover:text-white" href="/privacy.html">Privacy</a><a class="block hover:text-white" href="/terms.html">Terms</a></div>
-  </div>
-  <div class="mx-auto max-w-7xl px-4 pb-8 text-xs text-slate-500">© 2025-09-25 ControlStackAI. All rights reserved.</div>
-</footer></body></html>
+</footer>
+
+</body>
+</html>

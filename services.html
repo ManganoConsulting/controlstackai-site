@@ -1,41 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Services — ControlStackAI</title><meta name="description" content="AI/LLM workflows & assistants, MATLAB/Simulink modernization, Dev Productivity, GitOps"/>
-<meta property="og:title" content="Services — ControlStackAI"/><meta property="og:description" content="AI/LLM workflows & assistants, MATLAB/Simulink modernization, Dev Productivity, GitOps"/>
-<meta property="og:image" content="/assets/banner-1584x396.png"/>
-<link rel="icon" href="/assets/logo.svg" type="image/svg+xml"/>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="/styles/tailwind-cdn.js"></script>
-<style>.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(6px);}</style>
-</head><body class="bg-ink text-slate-100 antialiased selection:bg-accent/30 selection:text-ink">
 
-<header class="sticky top-0 z-50 border-b border-white/5 bg-ink/80 backdrop-blur">
-  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-3"><img src="/assets/logo.svg" class="h-8 w-auto" alt="ControlStackAI"/></a>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="/services.html" class="hover:text-white">Services</a>
-      <a href="/about.html" class="hover:text-white">About</a>
-      <a href="/contact.html" class="hover:text-white">Contact</a>
-    </nav>
-    <a href="/contact.html" class="inline-flex items-center rounded-xl bg-accent/90 px-4 py-2 text-ink font-semibold hover:bg-accent">Book a consult</a>
-  </div>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ControlStack AI — Agentic AI, Machine Learning, Deep Learning</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/modern.css">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="logo" href="/"><img src="/assets/logo.svg" alt="ControlStack AI logo"><span>ControlStack AI</span></a>
+    <div class="links">
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
 </header>
-<main class="mx-auto max-w-7xl px-4 py-16">
-  <h1 class="text-4xl font-extrabold text-white">Services</h1>
-  <div class="mt-10 grid gap-6 md:grid-cols-2">
-    <section class="rounded-2xl border border-white/5 p-6 glass"><h2 class="text-xl font-bold text-white">AI/LLM Workflow Design & Assistants</h2><ul class="mt-3 list-disc ml-5 text-slate-300 space-y-1"><li>Agentic assistants with schema-driven UIs and CI gating</li><li>Safety/QA mode, audit trails, run manifests</li><li>Retrieval with citations</li></ul></section>
-    <section class="rounded-2xl border border-white/5 p-6 glass"><h2 class="text-xl font-bold text-white">MATLAB/Simulink Tooling & Integration</h2><ul class="mt-3 list-disc ml-5 text-slate-300 space-y-1"><li>Custom apps, toolboxes, and scripts tailored to your workflow</li><li>6-DOF modeling, control laws (NDI/INDI/LQR)</li><li>Automation and CI-friendly pipelines (Simulink Test/Requirements, code generation)</li></ul></section>
-    <section class="rounded-2xl border border-white/5 p-6 glass"><h2 class="text-xl font-bold text-white">Dev Productivity Engineering</h2><ul class="mt-3 list-disc ml-5 text-slate-300 space-y-1"><li>Test generation, doc summarization, code-review copilots</li><li>Build/release automation</li></ul></section>
-    <section class="rounded-2xl border border-white/5 p-6 glass"><h2 class="text-xl font-bold text-white">GitOps on Bare Metal</h2><ul class="mt-3 list-disc ml-5 text-slate-300 space-y-1"><li>Talos, Rook-Ceph, Cilium, MetalLB, ArgoCD</li><li>Observability with Prometheus/Grafana/Hubble</li></ul></section>
-  </div>
+
+<main>
+  <section id="agentic" class="container">
+    <h2 class="headline" style="font-size:40px">Agentic AI Systems</h2>
+    <p class="muted">We build agents that plan, call tools/APIs, verify outcomes, and improve with feedback.</p>
+    <div class="grid">
+      <article class="card"><h3>Workflow Design</h3><p>Multi-step plans, guardrails, review steps.</p></article>
+      <article class="card"><h3>Tooling & Integrations</h3><p>Cloudflare Workers, REST/GraphQL, webhooks, cron.</p></article>
+      <article class="card"><h3>Data & Retrieval</h3><p>Embeddings, vector search, structured context.</p></article>
+      <article class="card"><h3>Safety & Observability</h3><p>Evaluation, fallbacks, audit logs, metrics.</p></article>
+    </div>
+  </section>
+
+  <section id="ml" class="container">
+    <h2 class="headline" style="font-size:40px">Machine Learning</h2>
+    <div class="grid">
+      <article class="card"><h3>Classical & Time-Series</h3><p>Forecasting, anomaly detection, optimization.</p></article>
+      <article class="card"><h3>Tabular Excellence</h3><p>Feature engineering, model selection, validation.</p></article>
+      <article class="card"><h3>Deployment</h3><p>APIs, batch jobs, dashboards with alerts.</p></article>
+    </div>
+  </section>
+
+  <section id="dl" class="container">
+    <h2 class="headline" style="font-size:40px">Deep Learning</h2>
+    <div class="grid">
+      <article class="card"><h3>RAG & LLM Apps</h3><p>Retrieval pipelines, prompt/agent design, evals.</p></article>
+      <article class="card"><h3>Vision & Multimodal</h3><p>Inspection, document parsing, perception.</p></article>
+      <article class="card"><h3>Fine-tuning</h3><p>Adapters, LoRA, domain specialization.</p></article>
+    </div>
+  </section>
+
+  <section id="mlops" class="container">
+    <h2 class="headline" style="font-size:36px">MLOps & Platforms</h2>
+    <p class="muted">Data pipelines, CI/CD for models, monitoring, governance.</p>
+  </section>
 </main>
-<footer class="mt-24 border-t border-white/5">
-  <div class="mx-auto max-w-7xl px-4 py-10 grid gap-6 md:grid-cols-3 text-sm text-slate-400">
-    <div><div class="text-white font-semibold">ControlStackAI</div><div class="text-slate-400">Agentic AI workflows for engineering teams</div></div>
-    <div><div class="font-semibold text-slate-300 mb-2">Contact</div><div><a href="mailto:matthew@mangano-consulting.com" class="hover:text-white">matthew@mangano-consulting.com</a></div></div>
-    <div><div class="font-semibold text-slate-300 mb-2">Legal</div><a class="block hover:text-white" href="/privacy.html">Privacy</a><a class="block hover:text-white" href="/terms.html">Terms</a></div>
+
+<footer class="footer">
+  <div class="container">
+    <div>© 2025 ControlStack AI. All rights reserved.</div>
+    <div style="margin-top:6px">Imagery: replace <code>assets/hero-mesh.svg</code> with your preferred artwork (AVIF/WebP/SVG).</div>
   </div>
-  <div class="mx-auto max-w-7xl px-4 pb-8 text-xs text-slate-500">© 2025-09-25 ControlStackAI. All rights reserved.</div>
-</footer></body></html>
+</footer>
+
+</body>
+</html>
