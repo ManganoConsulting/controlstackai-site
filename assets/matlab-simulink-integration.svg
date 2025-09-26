@@ -1,0 +1,9 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="32" fill="#0F172A"/>
+  <rect x="60" y="60" width="520" height="240" rx="24" fill="#1E293B" stroke="#38BDF8" stroke-width="3" stroke-dasharray="14 14"/>
+  <path d="M120 220C160 160 220 140 260 200C300 260 360 250 400 200C440 150 500 150 540 200" stroke="#F97316" stroke-width="6" stroke-linecap="round"/>
+  <path d="M180 140L160 100L220 110L240 150L210 170L180 140Z" fill="#FACC15" opacity="0.8"/>
+  <circle cx="460" cy="140" r="34" fill="#22D3EE" opacity="0.6"/>
+  <rect x="420" y="230" width="120" height="46" rx="14" fill="#22D3EE" fill-opacity="0.2" stroke="#22D3EE" stroke-width="2"/>
+  <text x="120" y="280" fill="#E2E8F0" font-family="'Inter', 'Segoe UI', sans-serif" font-size="24" font-weight="600">Model integration surface</text>
+</svg>
