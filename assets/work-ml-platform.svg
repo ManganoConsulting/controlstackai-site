@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-label="Machine learning platform visualization">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#312e81" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="240" rx="24" fill="url(#bg)"/>
+  <g transform="translate(32 32)">
+    <rect width="416" height="176" rx="20" fill="#0b1220" stroke="#1f2937"/>
+    <rect x="24" y="28" width="184" height="120" rx="16" fill="#111c30" stroke="#38bdf8" stroke-opacity="0.4"/>
+    <rect x="232" y="28" width="160" height="48" rx="14" fill="#111c30" stroke="#22d3ee" stroke-opacity="0.4"/>
+    <rect x="232" y="92" width="160" height="56" rx="14" fill="#111c30" stroke="#a855f7" stroke-opacity="0.4"/>
+    <rect x="24" y="156" width="368" height="12" rx="6" fill="#1f2937"/>
+    <rect x="24" y="8" width="120" height="10" rx="5" fill="#1f2937"/>
+    <rect x="148" y="8" width="72" height="10" rx="5" fill="#1f2937" opacity="0.7"/>
+    <rect x="24" y="140" width="220" height="12" rx="6" fill="#1f2937" opacity="0.5"/>
+    <g transform="translate(42 48)">
+      <rect width="72" height="72" rx="16" fill="url(#panel)"/>
+      <rect x="88" y="0" width="64" height="12" rx="6" fill="#38bdf8"/>
+      <rect x="88" y="20" width="52" height="8" rx="4" fill="#38bdf8" opacity="0.6"/>
+      <rect x="88" y="36" width="56" height="8" rx="4" fill="#38bdf8" opacity="0.4"/>
+      <rect x="88" y="52" width="60" height="8" rx="4" fill="#38bdf8" opacity="0.3"/>
+    </g>
+    <g transform="translate(252 44)">
+      <rect width="120" height="20" rx="10" fill="#1e3a8a"/>
+      <rect x="8" y="6" width="72" height="8" rx="4" fill="#60a5fa"/>
+      <rect y="32" width="144" height="4" rx="2" fill="#1f2937"/>
+      <rect y="40" width="144" height="4" rx="2" fill="#1f2937"/>
+      <rect y="48" width="144" height="4" rx="2" fill="#1f2937"/>
+      <rect x="12" y="32" width="96" height="4" rx="2" fill="#38bdf8"/>
+      <rect x="28" y="40" width="88" height="4" rx="2" fill="#2dd4bf"/>
+      <rect x="20" y="48" width="112" height="4" rx="2" fill="#c084fc"/>
+    </g>
+    <g transform="translate(252 112)">
+      <rect width="120" height="24" rx="12" fill="#1e3a8a"/>
+      <rect x="12" y="8" width="72" height="8" rx="4" fill="#38bdf8"/>
+      <rect x="0" y="40" width="160" height="8" rx="4" fill="#1f2937"/>
+      <rect x="0" y="52" width="160" height="8" rx="4" fill="#1f2937"/>
+      <rect x="0" y="64" width="160" height="8" rx="4" fill="#1f2937"/>
+      <rect x="10" y="40" width="108" height="8" rx="4" fill="#38bdf8"/>
+      <rect x="24" y="52" width="96" height="8" rx="4" fill="#22d3ee"/>
+      <rect x="52" y="64" width="84" height="8" rx="4" fill="#a855f7"/>
+    </g>
+    <path d="M60 172c28-18 48-6 76-16 28-10 48-36 76-30 28 6 48 42 76 44 28 2 48-28 76-30 28-2 48 20 76 16" fill="none" stroke="url(#spark)" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 12"/>
+  </g>
+</svg>
