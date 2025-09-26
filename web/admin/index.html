@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ControlStackAI Admin</title>
+<link rel="stylesheet" href="/styles/modern.css">
+<body>
+<header class="header">
+  <nav class="nav">
+    <a class="logo" href="/"><img src="/assets/logo.svg" alt="logo" style="width:28px;height:28px;border-radius:8px"><span>ControlStack AI</span></a>
+    <div class="links"><a href="/">Site</a></div>
+  </nav>
+</header>
+<main class="container">
+  <h1 class="headline" style="font-size:40px">Leads</h1>
+  <div class="card">
+    <p class="muted">Access protects this page. Data served from D1.</p>
+    <button class="btn btn-primary" id="refresh">Refresh</button>
+  </div>
+  <div id="list" class="container" style="padding:0"></div>
+</main>
+<script>
+const API = '/v1/leads';
+const list = document.getElementById('list');
+const refresh = async () => {
+  list.innerHTML = '<p class="muted">Loading…</p>';
+  const res = await fetch(API);
+  const rows = await res.json();
+  const html = ['<div class="grid">'].concat(rows.map(r => `
+    <article class="card">
+      <h3>${r.name} <span class="muted">— ${r.email}</span></h3>
+      <p>${(r.message||'').replace(/[<>&]/g, s => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[s]))}</p>
+      <p class="muted">${new Date(r.created_at).toLocaleString()} • ${r.ip||''}</p>
+    </article>
+  `)).concat(['</div>']).join('');
+  list.innerHTML = html;
+};
+document.getElementById('refresh').addEventListener('click', refresh);
+refresh();
+</script>
+</body>
+</html>
