@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-label="Deep learning perception visualization">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="60%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#00010a"/>
+    </radialGradient>
+    <linearGradient id="wave" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="pulse" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="240" rx="24" fill="url(#bg)"/>
+  <g opacity="0.45" stroke="#38bdf8" stroke-width="1" stroke-dasharray="6 18">
+    <path d="M32 48H448"/>
+    <path d="M32 96H448"/>
+    <path d="M32 144H448"/>
+    <path d="M32 192H448"/>
+  </g>
+  <g opacity="0.25" stroke="#a855f7" stroke-width="1" stroke-dasharray="4 12">
+    <path d="M96 24V216"/>
+    <path d="M192 24V216"/>
+    <path d="M288 24V216"/>
+    <path d="M384 24V216"/>
+  </g>
+  <g fill="none" stroke="url(#wave)" stroke-width="4">
+    <path d="M40 140c40-40 80 40 120 0s80-40 120 0 80 40 120 0 80-40 120 0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M40 100c40-40 80 40 120 0s80-40 120 0 80 40 120 0 80-40 120 0" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  </g>
+  <g>
+    <circle cx="120" cy="120" r="36" fill="#020617" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="120" cy="120" r="18" fill="#38bdf8" fill-opacity="0.3" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="120" cy="120" r="6" fill="#22d3ee"/>
+  </g>
+  <g>
+    <circle cx="240" cy="120" r="44" fill="#020617" stroke="#38bdf8" stroke-width="3"/>
+    <path d="M210 120h60" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
+    <path d="M240 90v60" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="240" cy="120" r="12" fill="#a855f7" fill-opacity="0.6"/>
+  </g>
+  <g>
+    <circle cx="360" cy="120" r="36" fill="#020617" stroke="#a855f7" stroke-width="3"/>
+    <path d="M360 102c10 0 18 8 18 18s-8 18-18 18-18-8-18-18 8-18 18-18z" fill="url(#pulse)"/>
+    <circle cx="360" cy="120" r="8" fill="#f472b6"/>
+  </g>
+  <g opacity="0.6">
+    <rect x="72" y="184" width="96" height="16" rx="8" fill="#1f2937"/>
+    <rect x="88" y="188" width="64" height="8" rx="4" fill="#38bdf8"/>
+    <rect x="192" y="184" width="96" height="16" rx="8" fill="#1f2937"/>
+    <rect x="208" y="188" width="64" height="8" rx="4" fill="#22d3ee"/>
+    <rect x="312" y="184" width="96" height="16" rx="8" fill="#1f2937"/>
+    <rect x="328" y="188" width="64" height="8" rx="4" fill="#a855f7"/>
+  </g>
+</svg>
