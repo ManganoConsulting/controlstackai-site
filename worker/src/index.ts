@@ -53,11 +53,25 @@ function hasValidApiKey(request: Request, env: Env): boolean {
   return Boolean(token) && token === env.API_KEY;
 }
 
+function getCookie(request: Request, name: string): string | undefined {
+  const cookie = request.headers.get("Cookie") || "";
+  const idx = cookie.indexOf(name + "=");
+  if (idx === -1) return undefined;
+  const start = idx + name.length + 1;
+  let end = cookie.indexOf(";", start);
+  if (end === -1) end = cookie.length;
+  return cookie.slice(start, end);
+}
+
 function isAuthorized(request: Request, env: Env): boolean {
-  // Accept either a matching API key or the presence of a Cloudflare Access JWT header.
+  // Accept either a matching API key or Cloudflare Access authentication
   if (hasValidApiKey(request, env)) return true;
+  // 1) Header set by Access for service tokens or some browser flows
   const accessJwt = request.headers.get("Cf-Access-Jwt-Assertion");
-  if (accessJwt) return true; // If Access is configured on the route, this header will be present.
+  if (accessJwt) return true;
+  // 2) Cookie set by Access after interactive login
+  const accessCookie = getCookie(request, "CF_Authorization");
+  if (accessCookie) return true;
   return false;
 }
 
@@ -193,7 +207,14 @@ export default {
       return json({ ok: true, service: "controlstackai-api" }, 200, allowOrigin);
     }
 
-    if (url.pathname === "/admin" && request.method === "GET") {
+    if ((url.pathname === "/admin" || url.pathname === "/admin/") && request.method === "GET") {
+      // Redirect /admin/ to /admin for consistency
+      if (url.pathname === "/admin/") {
+        return new Response(null, {
+          status: 301,
+          headers: { "Location": "/admin" }
+        });
+      }
       if (!isAuthorized(request, env)) {
         return html("<h1>Unauthorized</h1><p>Access denied.</p>", 401);
       }
