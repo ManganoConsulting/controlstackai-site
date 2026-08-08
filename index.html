@@ -3,230 +3,546 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ControlStackAI - Private agent platform for engineering teams</title>
-  <meta name="description" content="Private AI agent platform for engineering teams working in MATLAB, Simulink, controls, flight dynamics, requirements, and verification.">
-  <meta property="og:title" content="ControlStackAI - Private agent platform for engineering teams">
-  <meta property="og:description" content="AI agents for engineering work, deployed inside your infrastructure.">
-  <meta property="og:image" content="/assets/icon-neural-grid.svg">
+  <title>ControlStackAI — AI development, agent integration, workflow implementation</title>
+  <meta name="description" content="ControlStackAI builds AI systems that actually run in production: agent applications, harness and tool integration, and workflow automation with human review gates. Led by aerospace engineer Matthew Mangano.">
   <link rel="canonical" href="https://controlstackai.com/">
   <link rel="icon" href="/assets/icon-neural-grid.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://controlstackai.com/">
+  <meta property="og:title" content="ControlStackAI — AI systems that run, not demos that impress">
+  <meta property="og:description" content="AI application development, agent harness integration, and workflow implementation for teams that need the work done.">
+  <meta property="og:image" content="https://controlstackai.com/assets/video/agentic-os-demo-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ControlStackAI — AI systems that run, not demos that impress">
+  <meta name="twitter:description" content="AI application development, agent harness integration, and workflow implementation.">
+  <meta name="twitter:image" content="https://controlstackai.com/assets/video/agentic-os-demo-poster.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/styles/tailwind-cdn.js"></script>
   <style>
     html{scroll-behavior:smooth}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#020617}
-    .line{background:linear-gradient(90deg,rgba(22,242,209,.04),rgba(22,242,209,.85),rgba(255,255,255,.7),rgba(0,102,255,.05))}
-    .section-bg{position:relative;overflow:hidden;isolation:isolate}
-    .section-bg::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--section-image);background-position:center;background-size:cover;background-repeat:no-repeat;opacity:var(--section-opacity,.18);transform:scale(1.04)}
-    .section-bg::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(2,6,23,.92),rgba(2,6,23,.68),rgba(2,6,23,.9)),radial-gradient(circle at 72% 18%,rgba(22,242,209,.18),transparent 30%),radial-gradient(circle at 20% 80%,rgba(0,102,255,.18),transparent 36%)}
-    .hero::before{background-attachment:fixed;opacity:.25;transform:scale(1.08)}
-    .hero::after{background:linear-gradient(90deg,rgba(2,6,23,.96),rgba(2,6,23,.64),rgba(2,6,23,.88)),radial-gradient(circle at 78% 18%,rgba(22,242,209,.24),transparent 28%),radial-gradient(circle at 10% 88%,rgba(124,77,255,.22),transparent 34%)}
-    .glass{background:rgba(255,255,255,.03);box-shadow:0 24px 90px rgba(0,0,0,.32)}
-    .glass-soft{background:rgba(255,255,255,.026)}
-    .display{letter-spacing:0}
-    @media (max-width:768px){.hero::before{background-attachment:scroll}.section-bg::before{opacity:calc(var(--section-opacity,.18) - .04)}}
+    body{background:#07111f}
+    /* The ambient field behind the page: the island's own glow, kept quiet. */
+    .field{position:relative;isolation:isolate}
+    .field::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(70rem 40rem at 78% -10%, rgba(166,125,243,.16), transparent 60%),
+        radial-gradient(60rem 36rem at 8% 12%, rgba(108,176,255,.12), transparent 60%);}
+    .rule{height:1px;background:linear-gradient(90deg,transparent,rgba(108,176,255,.5),rgba(166,125,243,.4),transparent)}
+    .panel{background:rgba(255,255,255,.028);backdrop-filter:blur(14px)}
+    .panel-solid{background:rgba(13,27,46,.72);backdrop-filter:blur(14px)}
+    .eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase}
+    .display{letter-spacing:-.02em}
+    /* Player frame — mirrors the island's border treatment so the film sits in
+       the page rather than on top of it. */
+    .player{box-shadow:0 40px 120px -40px rgba(166,125,243,.45),0 0 0 1px rgba(36,70,111,.9)}
+    .player video{display:block;width:100%;height:auto;background:#07111f}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ControlStackAI LLC","url":"https://controlstackai.com","logo":"https://controlstackai.com/assets/icon-neural-grid.svg","email":"hello@controlstackai.com","founder":{"@type":"Person","name":"Matthew Mangano"},"address":{"@type":"PostalAddress","addressRegion":"WY","addressCountry":"US"}}</script>
+
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"ControlStackAI LLC",
+    "url":"https://controlstackai.com",
+    "logo":"https://controlstackai.com/assets/icon-neural-grid.svg",
+    "email":"hello@controlstackai.com",
+    "description":"AI application development, agent harness integration, and workflow implementation.",
+    "founder":{"@type":"Person","name":"Matthew Mangano","jobTitle":"Aerospace engineer"},
+    "areaServed":"US",
+    "address":{"@type":"PostalAddress","addressRegion":"WY","addressCountry":"US"}
+  }</script>
 </head>
-<body class="text-white antialiased selection:bg-accent/30">
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+
+<body class="bg-ink font-sans text-muted antialiased selection:bg-voice/40 selection:text-white">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink">Skip to content</a>
+
+  <header class="sticky top-0 z-50 border-b border-edge/50 bg-ink/85 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4" aria-label="Primary">
       <a href="/" class="flex items-center gap-3" aria-label="ControlStackAI home">
-        <img src="/assets/icon-neural-grid.svg" class="h-8 w-8 rounded-sm" alt="">
-        <span class="text-sm font-semibold tracking-tight text-white">ControlStackAI</span>
+        <img src="/assets/icon-neural-grid.svg" class="h-8 w-8 rounded-md" alt="">
+        <span class="text-sm font-semibold tracking-tight text-fg">ControlStackAI</span>
       </a>
-      <div class="flex items-center gap-4 text-sm text-slate-300 sm:gap-6">
-        <a href="#redline" class="hover:text-white">Redline</a>
-        <a href="#platform" class="hover:text-white">Platform</a>
-        <a href="#workflows" class="hover:text-white">Workflows</a>
-        <a href="#early-access" class="rounded-md bg-accent px-3 py-2 font-medium text-white hover:bg-accent/90">Early access</a>
+      <div class="hidden items-center gap-7 text-sm text-muted md:flex">
+        <a href="#demo" class="transition hover:text-fg">Demo</a>
+        <a href="#services" class="transition hover:text-fg">Services</a>
+        <a href="#method" class="transition hover:text-fg">Method</a>
+        <a href="#engagements" class="transition hover:text-fg">Engagements</a>
+        <a href="/about.html" class="transition hover:text-fg">About</a>
       </div>
+      <a href="#contact" class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a>
     </nav>
   </header>
 
-  <main>
-    <section class="section-bg hero px-5 pb-16 pt-12 md:pb-20 md:pt-14" style="--section-image:url('/assets/hero-agentic-matrix.svg')">
-      <div class="pointer-events-none absolute inset-x-5 top-8 mx-auto max-w-7xl" aria-hidden="true">
-        <div class="line mb-10 h-px w-full"></div>
-        <img src="/assets/controlstackai-mark.svg" class="ml-auto h-12 w-12 rounded-xl shadow-2xl shadow-accent/20 md:h-14 md:w-14" alt="">
-      </div>
+  <main id="main">
+
+    <!-- ─────────────────────────────────────────────────────────── hero -->
+    <section class="field px-5 pb-16 pt-16 md:pb-24 md:pt-24">
       <div class="mx-auto max-w-7xl">
-        <div class="max-w-6xl pb-14">
-          <p class="text-xl font-medium text-accent md:text-2xl">Private AI agents for serious engineering work.</p>
-          <h1 class="display mt-5 max-w-6xl text-5xl font-semibold leading-[.95] text-white md:text-7xl lg:text-8xl">Agent platforms belong inside the engineering boundary.</h1>
-          <p class="mt-7 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl md:leading-9">ControlStackAI gives engineering teams a private runtime for long-running agents that operate MATLAB, Simulink, requirements, source control, and verification workflows. Not another chat window. Reviewable engineering output from agents that understand your toolchain and constraints.</p>
-          <div class="mt-9 flex flex-wrap gap-3">
-            <a href="#early-access" class="inline-flex rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent/90">Request early access</a>
-            <a href="#platform" class="inline-flex rounded-md border border-white/20 bg-white/[.03] px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:border-white/40">Explore the platform</a>
+        <p class="eyebrow text-xs text-accent">AI development · Agent integration · Workflow implementation</p>
+        <h1 class="display mt-6 max-w-6xl text-4xl font-semibold leading-[1.05] text-fg sm:text-5xl md:text-6xl lg:text-7xl">
+          Most AI projects stop at the demo.<br class="hidden lg:block"> I build the ones that keep running.
+        </h1>
+        <p class="mt-8 max-w-2xl text-lg leading-8 text-muted md:text-xl md:leading-9">
+          ControlStackAI is the engineering practice of Matthew Mangano. I design, build, and operate
+          AI systems that hold real context, take real actions inside real tools, and leave a record
+          you can review afterward — for teams that need the work finished, not another pilot.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-3">
+          <a href="#contact" class="inline-flex rounded-md bg-accent px-6 py-3 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a>
+          <a href="#demo" class="inline-flex items-center gap-2 rounded-md border border-edge bg-white/[.03] px-6 py-3 text-sm font-semibold text-fg backdrop-blur transition hover:border-accent/60">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 fill-voice" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Watch a system I built
+          </a>
+        </div>
+
+        <div class="rule mt-16"></div>
+
+        <dl class="mt-10 grid gap-8 sm:grid-cols-3">
+          <div>
+            <dt class="eyebrow text-[.65rem] text-voice">What I actually do</dt>
+            <dd class="mt-3 leading-7 text-muted">Write the code, wire the tools, run the evaluations, and stay on until it works in production.</dd>
           </div>
-          <div class="glass mt-10 max-w-3xl border border-white/10 p-6 backdrop-blur-xl">
-            <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Built for</p>
-            <div class="mt-5 grid gap-4 text-sm leading-6 text-slate-200 md:grid-cols-3">
-              <p><span class="font-semibold text-white">Controls and dynamics:</span> model analysis, linearization, trim, simulation review, test evidence.</p>
-              <p><span class="font-semibold text-white">Regulated teams:</span> private deployments, audit trails, human checkpoints, artifact history.</p>
-              <p><span class="font-semibold text-white">Engineering context:</span> agents grounded in repos, requirements, models, docs, tickets, and team conventions.</p>
-            </div>
+          <div>
+            <dt class="eyebrow text-[.65rem] text-voice">Who this is for</dt>
+            <dd class="mt-3 leading-7 text-muted">Engineering teams and technical founders who already tried the obvious AI tools and hit the wall where the real work starts.</dd>
           </div>
+          <div>
+            <dt class="eyebrow text-[.65rem] text-voice">Where I come from</dt>
+            <dd class="mt-3 leading-7 text-muted">Aerospace — 6-DOF flight simulation, control systems, and verification work where &ldquo;probably correct&rdquo; was never an acceptable answer.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────────────── demo -->
+    <section id="demo" class="field border-y border-edge/50 px-5 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl">
+        <div class="max-w-3xl">
+          <p class="eyebrow text-xs text-accent">Proof of work</p>
+          <h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">
+            An operating system run by its agent. Built here, running daily.
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-muted">
+            This is not a concept video or a product I am selling you. It is my own working
+            environment: one spoken request becomes retrieved context, a plan, delegated execution
+            across specialist agents, and a consequential action that stops for human approval and
+            leaves a receipt. The same architecture is what I build for clients.
+          </p>
+        </div>
+
+        <figure class="mt-12">
+          <div class="player overflow-hidden rounded-2xl">
+            <video controls preload="none" playsinline
+                   poster="/assets/video/agentic-os-demo-poster.jpg"
+                   width="1920" height="1080"
+                   aria-label="Agentic OS product film, 1 minute 48 seconds, with captions burned in">
+              <source src="/assets/video/agentic-os-demo.mp4" type="video/mp4">
+              <p class="p-6 text-muted">
+                Your browser cannot play embedded video.
+                <a class="text-accent underline" href="/assets/video/agentic-os-demo.mp4">Download the film (MP4, 9&nbsp;MB)</a>.
+              </p>
+            </video>
+          </div>
+          <figcaption class="mt-4 text-sm leading-6 text-dim">
+            1:48 · Captions are burned in, so it plays with the sound off. Recorded on the machine
+            it runs on — the capture region was bounded at record time, so nothing outside the
+            interface could enter frame.
+          </figcaption>
+        </figure>
+
+        <ul class="mt-12 grid gap-px overflow-hidden rounded-xl border border-edge/70 sm:grid-cols-2 lg:grid-cols-4">
+          <li class="panel-solid p-6">
+            <p class="eyebrow text-[.65rem] text-voice">Voice-first</p>
+            <p class="mt-3 text-sm leading-6 text-muted">The request is spoken. No prompt-chaining, no copy-paste between tabs.</p>
+          </li>
+          <li class="panel-solid p-6">
+            <p class="eyebrow text-[.65rem] text-voice">Persistent memory</p>
+            <p class="mt-3 text-sm leading-6 text-muted">Decisions and constraints survive the session, so the system stops re-asking what it was already told.</p>
+          </li>
+          <li class="panel-solid p-6">
+            <p class="eyebrow text-[.65rem] text-voice">Verified delegation</p>
+            <p class="mt-3 text-sm leading-6 text-muted">Specialist agents do the narrow work and report back with evidence, into one continuous thread.</p>
+          </li>
+          <li class="panel-solid p-6">
+            <p class="eyebrow text-[.65rem] text-voice">Review before action</p>
+            <p class="mt-3 text-sm leading-6 text-muted">Anything consequential freezes, asks for approval on the exact action, and writes a receipt after.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────────── services -->
+    <section id="services" class="px-5 py-20 md:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <p class="eyebrow text-xs text-accent">Services</p>
+          <h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">Three ways engagements usually start.</h2>
+          <p class="mt-6 text-lg leading-8 text-muted">
+            Different entry points, same underlying job: get a model doing useful work inside
+            systems that already have owners, constraints, and consequences.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+
+          <article class="panel flex flex-col rounded-2xl border border-edge/70 p-8">
+            <p class="eyebrow text-[.65rem] text-voice">01 — Build</p>
+            <h3 class="mt-4 text-2xl font-semibold text-fg">AI application development</h3>
+            <p class="mt-4 leading-7 text-muted">
+              Products with a model inside, built like software rather than like a prototype that
+              got promoted. Retrieval that returns the right thing, structured output you can parse,
+              evaluations that catch regressions, and cost and latency treated as requirements.
+            </p>
+            <ul class="mt-6 space-y-2 text-sm leading-6 text-dim">
+              <li>· Agent and RAG applications end to end</li>
+              <li>· Evaluation harnesses and regression suites</li>
+              <li>· Model routing, caching, and cost control</li>
+              <li>· Deployment inside your infrastructure boundary</li>
+            </ul>
+          </article>
+
+          <article class="panel flex flex-col rounded-2xl border border-edge/70 p-8">
+            <p class="eyebrow text-[.65rem] text-voice">02 — Integrate</p>
+            <h3 class="mt-4 text-2xl font-semibold text-fg">Agent harness integration</h3>
+            <p class="mt-4 leading-7 text-muted">
+              Coding agents and assistants are only as useful as their reach. I connect them to the
+              repositories, tools, and services your team actually uses, with permissions that are
+              scoped deliberately instead of granted by default.
+            </p>
+            <ul class="mt-6 space-y-2 text-sm leading-6 text-dim">
+              <li>· Harness setup and multi-agent orchestration</li>
+              <li>· MCP servers and custom tool interfaces</li>
+              <li>· Chat, issue tracker, and CI integration</li>
+              <li>· Scoped permissions, approval gates, audit trails</li>
+            </ul>
+          </article>
+
+          <article class="panel flex flex-col rounded-2xl border border-edge/70 p-8">
+            <p class="eyebrow text-[.65rem] text-voice">03 — Automate</p>
+            <h3 class="mt-4 text-2xl font-semibold text-fg">Workflow implementation</h3>
+            <p class="mt-4 leading-7 text-muted">
+              Take a process a person runs by hand every week and make it a supervised one. Map the
+              real workflow — including the exceptions nobody documented — automate the load-bearing
+              parts, and put a human at the decisions that deserve one.
+            </p>
+            <ul class="mt-6 space-y-2 text-sm leading-6 text-dim">
+              <li>· Workflow mapping and opportunity ranking</li>
+              <li>· Document, report, and analysis pipelines</li>
+              <li>· Engineering toolchain automation, including MATLAB and Simulink</li>
+              <li>· Human checkpoints where the stakes justify them</li>
+            </ul>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <section id="redline" class="px-5 py-20 md:py-24">
+    <!-- ──────────────────────────────────────────────────────── method -->
+    <section id="method" class="field border-y border-edge/50 px-5 py-20 md:py-28">
       <div class="mx-auto max-w-7xl">
-        <div class="glass relative overflow-hidden rounded-3xl border border-white/10 p-8 shadow-[0_20px_45px_-30px_rgba(15,23,42,0.9)] md:p-10">
-          <div class="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-accent/70 via-white/60 to-accent/40 opacity-75"></div>
-          <div class="grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-start">
-            <div>
-              <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Product: Redline</p>
-              <h2 class="mt-3 text-3xl font-bold text-white md:text-4xl">Export-control guardrails for AI agents working around controlled technical data.</h2>
-              <p class="mt-4 leading-7 text-slate-300">Redline is an export-control (ITAR/EAR) guardrail and tamper-evident audit layer for AI agents. It gives aerospace and defense teams a control point and evidence trail for agents that may read, summarize, or route sensitive engineering context.</p>
-              <p class="mt-4 leading-7 text-slate-300">As US policy gates frontier-model releases, value moves off the model layer and into private deployment, compliance, and model-agnostic orchestration. Teams are beginning to point agents at controlled USML technical data without a clear enforcement point.</p>
-              <div class="mt-7 flex flex-wrap items-center gap-3">
-                <a href="#early-access" class="inline-flex rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent/90">Request early access</a>
-                <span class="rounded-md border border-white/10 px-5 py-3 text-sm font-semibold text-slate-200">Model-agnostic &middot; runs on your infra</span>
-              </div>
-            </div>
-            <div class="grid gap-4">
-              <article class="glass-soft rounded-2xl border border-white/5 p-6">
-                <p class="text-sm font-medium uppercase tracking-wide text-accent">Classify &rarr; gate &rarr; audit</p>
-                <p class="mt-3 leading-7 text-slate-300">Evaluate agent events against policy, then allow, redact, block, or escalate before controlled content leaves an approved boundary.</p>
-              </article>
-              <article class="glass-soft rounded-2xl border border-white/5 p-6">
-                <p class="text-sm font-medium uppercase tracking-wide text-accent">Tamper-evident record</p>
-                <p class="mt-3 leading-7 text-slate-300">Append decision metadata to a hash-chained audit trail so reviewers can inspect what happened without storing raw controlled content.</p>
-              </article>
-              <article class="glass-soft rounded-2xl border border-white/5 p-6">
-                <p class="text-sm font-medium uppercase tracking-wide text-accent">Compliance support</p>
-                <p class="mt-3 leading-7 text-slate-300">Redline supports an export-control compliance program. It is not legal advice, an ITAR determination, or a replacement for your empowered official.</p>
-              </article>
-            </div>
-          </div>
+        <div class="max-w-3xl">
+          <p class="eyebrow text-xs text-accent">Method</p>
+          <h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">Context, plan, execution, proof.</h2>
+          <p class="mt-6 text-lg leading-8 text-muted">
+            The same four beats the film walks through are how the engagement itself runs. AI work
+            fails in predictable places: nobody wrote down what the system is allowed to assume, and
+            nobody defined what "working" means before building it.
+          </p>
         </div>
+
+        <ol class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <li class="panel rounded-2xl border border-edge/70 p-7">
+            <p class="font-mono text-3xl font-medium text-voice">01</p>
+            <h3 class="mt-5 text-xl font-semibold text-fg">Map the real work</h3>
+            <p class="mt-3 leading-7 text-muted">Watch the process as it is actually performed, not as the documentation describes it. Name the constraints, the data boundaries, and the steps that carry consequences.</p>
+          </li>
+          <li class="panel rounded-2xl border border-edge/70 p-7">
+            <p class="font-mono text-3xl font-medium text-voice">02</p>
+            <h3 class="mt-5 text-xl font-semibold text-fg">Build the thin path</h3>
+            <p class="mt-3 leading-7 text-muted">One workflow, end to end, in production, early. A narrow system people use beats a broad one they evaluate.</p>
+          </li>
+          <li class="panel rounded-2xl border border-edge/70 p-7">
+            <p class="font-mono text-3xl font-medium text-voice">03</p>
+            <h3 class="mt-5 text-xl font-semibold text-fg">Put the gates in</h3>
+            <p class="mt-3 leading-7 text-muted">Scoped permissions, approval on consequential actions, and an evaluation suite that fails loudly. Autonomy gets extended once it is earned, not assumed on day one.</p>
+          </li>
+          <li class="panel rounded-2xl border border-edge/70 p-7">
+            <p class="font-mono text-3xl font-medium text-voice">04</p>
+            <h3 class="mt-5 text-xl font-semibold text-fg">Hand over something operable</h3>
+            <p class="mt-3 leading-7 text-muted">Documented, tested, and runnable by your team. You should be able to change it without calling me — and call me because you want to, not because you are stuck.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <section id="platform" class="section-bg border-y border-white/10 px-5 py-20 md:py-24" style="--section-image:url('/assets/simulink-ci-dashboard.svg');--section-opacity:.2">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl">
-          <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Platform layer</p>
-          <h2 class="display mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl">A private control plane for agentic engineering.</h2>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200">Coordinate long-running agent work on your infrastructure, with durable state, scoped tool permissions, checkpoints, traces, and review gates that match how engineering organizations actually operate.</p>
-        </div>
-        <div class="mt-12 grid gap-px overflow-hidden border border-white/10 md:grid-cols-3">
-          <article class="glass p-7 backdrop-blur-xl">
-            <p class="text-sm font-medium text-accent">Private runtime</p>
-            <h3 class="mt-3 text-2xl font-semibold text-white">Agents run where your IP is allowed to live</h3>
-            <p class="mt-4 leading-7 text-slate-300">Deploy agent sessions inside approved infrastructure instead of pushing proprietary context through unmanaged public tools.</p>
-          </article>
-          <article class="glass p-7 backdrop-blur-xl">
-            <p class="text-sm font-medium text-accent">Context layer</p>
-            <h3 class="mt-3 text-2xl font-semibold text-white">Ground work in the artifacts engineers trust</h3>
-            <p class="mt-4 leading-7 text-slate-300">Connect repos, requirements, models, design notes, test evidence, issue history, and local operating procedures.</p>
-          </article>
-          <article class="glass p-7 backdrop-blur-xl">
-            <p class="text-sm font-medium text-accent">Inference control</p>
-            <h3 class="mt-3 text-2xl font-semibold text-white">Route work across approved model backends</h3>
-            <p class="mt-4 leading-7 text-slate-300">Prepare for mixed commercial, private, and local inference while preserving policy, cost visibility, and traceability.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="workflows" class="section-bg px-5 py-20 md:py-24" style="--section-image:url('/assets/matlab-simulink-integration.svg');--section-opacity:.22">
-      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
+    <!-- ─────────────────────────────────────────────────── neutrality -->
+    <section class="px-5 py-20 md:py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_26rem] lg:items-start">
         <div>
-          <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Engineering workflows</p>
-          <h2 class="display mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl">Designed for models, evidence, and toolchains.</h2>
-          <p class="mt-6 text-lg leading-8 text-slate-200">The first focus is engineering work where correctness, provenance, and reviewability matter: controls, avionics, robotics, industrial automation, flight dynamics, and verification-heavy teams.</p>
+          <p class="eyebrow text-xs text-accent">Stack posture</p>
+          <h2 class="display mt-5 max-w-3xl text-3xl font-semibold leading-tight text-fg md:text-5xl">
+            Model-agnostic and harness-agnostic, on purpose.
+          </h2>
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-muted">
+            The frontier moves every few months. Anything built tightly around one vendor's
+            assumptions becomes a migration project the moment the pricing or the capability
+            changes. I build the boundary first — your workflows and evaluations on one side, the
+            model and harness on the other — so swapping either is a decision rather than a rewrite.
+          </p>
+          <p class="mt-6 max-w-3xl leading-8 text-muted">
+            In practice that means working across the current generation of coding agents and agent
+            runtimes, commercial and local inference, and the tool protocols that connect them —
+            and being honest with you about which parts of that are stable enough to depend on.
+          </p>
         </div>
-        <div class="grid gap-4 sm:grid-cols-2">
-          <article class="glass border border-white/10 p-6 backdrop-blur-xl">
-            <h3 class="text-xl font-semibold text-white">MATLAB and Simulink</h3>
-            <p class="mt-3 leading-7 text-slate-300">Inspect models, run scripts, summarize results, and generate reviewable technical artifacts.</p>
-          </article>
-          <article class="glass border border-white/10 p-6 backdrop-blur-xl">
-            <h3 class="text-xl font-semibold text-white">Controls workflows</h3>
-            <p class="mt-3 leading-7 text-slate-300">Support trim, linearization, controller iteration, simulation evidence, and technical writeups.</p>
-          </article>
-          <article class="glass border border-white/10 p-6 backdrop-blur-xl">
-            <h3 class="text-xl font-semibold text-white">Requirements and V&V</h3>
-            <p class="mt-3 leading-7 text-slate-300">Link agent output back to source requirements, test plans, tickets, and acceptance criteria.</p>
-          </article>
-          <article class="glass border border-white/10 p-6 backdrop-blur-xl">
-            <h3 class="text-xl font-semibold text-white">Team memory</h3>
-            <p class="mt-3 leading-7 text-slate-300">Preserve decisions, constraints, interfaces, and procedures so agents improve with context.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-bg border-y border-white/10 px-5 py-20 md:py-24" style="--section-image:url('/assets/work-deep-vision.svg');--section-opacity:.24">
-      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_28rem] lg:items-start">
-        <div>
-          <p class="max-w-5xl text-3xl font-medium leading-tight text-white md:text-5xl">Engineering tools were built for human operators. Agentic AI needs a platform layer that can operate those tools, preserve reviewability, and respect the infrastructure boundaries serious teams live inside.</p>
-          <a href="/manifesto.html" class="mt-8 inline-flex rounded-md border border-white/15 bg-white/[.03] px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:border-white/35">Read the manifesto</a>
-        </div>
-        <aside class="glass border border-white/10 p-6 backdrop-blur-xl">
-          <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Founder credibility</p>
-          <p class="mt-4 leading-7 text-slate-200">ControlStackAI is led by Matthew Mangano, an aerospace engineer who has built commercial control, simulation, and flight-dynamics tooling. The company is applying that systems mindset to private agent infrastructure for engineering teams.</p>
+        <aside class="panel rounded-2xl border border-edge/70 p-8">
+          <p class="eyebrow text-[.65rem] text-voice">Practical commitments</p>
+          <ul class="mt-6 space-y-5 text-sm leading-7 text-muted">
+            <li><span class="font-semibold text-fg">Your infrastructure is an option.</span> On-prem, VPC, or local inference when the data cannot leave.</li>
+            <li><span class="font-semibold text-fg">You own the output.</span> Code, prompts, evaluations, and documentation are yours, in your repositories.</li>
+            <li><span class="font-semibold text-fg">No lock-in by construction.</span> No proprietary runtime you have to keep licensing from me.</li>
+            <li><span class="font-semibold text-fg">Confidentiality is default.</span> Client work does not become a case study, a screenshot, or a demo.</li>
+          </ul>
         </aside>
       </div>
     </section>
 
-    <section class="section-bg px-5 py-20 md:py-24" style="--section-image:url('/assets/matlab-automation-loop.svg');--section-opacity:.21">
-      <div class="mx-auto max-w-7xl">
-        <div class="max-w-4xl">
-          <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Operating model</p>
-          <h2 class="display mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl">Agents that leave an audit trail, not a mystery.</h2>
+    <!-- ────────────────────────────────────────────────────── operator -->
+    <section class="field border-y border-edge/50 px-5 py-20 md:py-28">
+      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
+        <div>
+          <p class="eyebrow text-xs text-accent">Who you are hiring</p>
+          <h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">
+            An engineer who ships, not an agency that staffs.
+          </h2>
+          <div class="mt-8 space-y-6 text-lg leading-8 text-muted">
+            <p>
+              I am an aerospace engineer. Before AI systems, my work was aircraft 6-DOF simulation,
+              flight dynamics, control law development, and the verification that has to hold up
+              when something flies. That background is the reason I build AI the way I do: define
+              what correct means, instrument it, and never confuse a convincing output for a
+              validated one.
+            </p>
+            <p>
+              I also run the thing in the film. My own infrastructure is a fleet of specialist
+              agents on a declaratively managed Linux host, with persistent memory, scheduled
+              autonomous work, and approval gates on anything that leaves the machine. Every
+              failure mode I would otherwise discover on your project, I have already hit on mine.
+            </p>
+            <p>
+              You work with me directly. No account manager, no handoff to a junior team after the
+              pitch.
+            </p>
+          </div>
+          <a href="/about.html" class="mt-9 inline-flex rounded-md border border-edge bg-white/[.03] px-6 py-3 text-sm font-semibold text-fg transition hover:border-accent/60">More about the practice</a>
         </div>
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
-          <article class="glass-soft border border-white/10 p-6 backdrop-blur-xl">
-            <p class="text-4xl font-semibold text-white">01</p>
-            <h3 class="mt-5 text-xl font-semibold text-white">Plan against real context</h3>
-            <p class="mt-3 leading-7 text-slate-300">Agents read the repo, model structure, requirements, constraints, and prior decisions before touching work.</p>
-          </article>
-          <article class="glass-soft border border-white/10 p-6 backdrop-blur-xl">
-            <p class="text-4xl font-semibold text-white">02</p>
-            <h3 class="mt-5 text-xl font-semibold text-white">Execute through approved tools</h3>
-            <p class="mt-3 leading-7 text-slate-300">Runtime permissions keep each agent inside allowed commands, files, systems, and approval gates.</p>
-          </article>
-          <article class="glass-soft border border-white/10 p-6 backdrop-blur-xl">
-            <p class="text-4xl font-semibold text-white">03</p>
-            <h3 class="mt-5 text-xl font-semibold text-white">Return reviewable artifacts</h3>
-            <p class="mt-3 leading-7 text-slate-300">Engineers get diffs, reports, test output, traces, and provenance instead of opaque chat transcripts.</p>
-          </article>
+        <div class="panel rounded-2xl border border-edge/70 p-8">
+          <p class="eyebrow text-[.65rem] text-voice">Background</p>
+          <dl class="mt-6 space-y-6 text-sm leading-7">
+            <div>
+              <dt class="text-dim">Domain</dt>
+              <dd class="text-fg">Aerospace — flight dynamics, control systems, avionics, simulation and verification</dd>
+            </div>
+            <div>
+              <dt class="text-dim">Engineering tooling</dt>
+              <dd class="text-fg">MATLAB and Simulink, model-based design, automated test and reporting pipelines</dd>
+            </div>
+            <div>
+              <dt class="text-dim">AI systems</dt>
+              <dd class="text-fg">Multi-agent orchestration, retrieval and memory, tool protocols, evaluation harnesses</dd>
+            </div>
+            <div>
+              <dt class="text-dim">Infrastructure</dt>
+              <dd class="text-fg">Declarative Linux, containers, edge and cloud deployment, local inference</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <section id="early-access" class="section-bg border-t border-white/10 px-5 py-20 md:py-24" style="--section-image:url('/assets/work-ml-platform.svg');--section-opacity:.23">
-      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_28rem]">
-        <div>
-          <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">Early access</p>
-          <h2 class="display mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl">Design partners before public launch.</h2>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200">We are opening a small number of design-partner conversations with engineering teams that need agentic work to stay inside their boundary.</p>
+    <!-- ─────────────────────────────────────────────────── engagements -->
+    <section id="engagements" class="px-5 py-20 md:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <p class="eyebrow text-xs text-accent">Engagements</p>
+          <h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">Start small enough to be worth trying.</h2>
+          <p class="mt-6 text-lg leading-8 text-muted">
+            Most people should start with the audit. It is fixed-fee, it ends with something useful
+            whether or not we work together again, and it means neither of us is guessing at scope
+            when the build starts.
+          </p>
         </div>
-        <form class="glass border border-white/10 p-6 backdrop-blur-xl" action="/api/early-access" method="post">
-          <label class="block text-sm font-medium text-slate-200" for="email">Work email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required class="mt-2 w-full rounded-md border border-white/10 bg-black/30 px-3 py-3 text-white outline-none ring-accent/40 focus:ring-2">
-          <label class="mt-5 block text-sm font-medium text-slate-200" for="company">Company</label>
-          <input id="company" name="company" type="text" autocomplete="organization" required class="mt-2 w-full rounded-md border border-white/10 bg-black/30 px-3 py-3 text-white outline-none ring-accent/40 focus:ring-2">
-          <label class="mt-5 block text-sm font-medium text-slate-200" for="role">Role</label>
-          <input id="role" name="role" type="text" autocomplete="organization-title" required class="mt-2 w-full rounded-md border border-white/10 bg-black/30 px-3 py-3 text-white outline-none ring-accent/40 focus:ring-2">
-          <button type="submit" class="mt-6 w-full rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white hover:bg-accent/90">Get on the list</button>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+
+          <article class="panel flex flex-col rounded-2xl border border-accent/40 p-8 ring-1 ring-accent/20">
+            <div class="flex items-center justify-between gap-3">
+              <p class="eyebrow text-[.65rem] text-accent">Start here</p>
+              <span class="rounded-full border border-accent/40 px-3 py-1 text-[.7rem] font-medium text-accent">Fixed fee</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-fg">Workflow audit</h3>
+            <p class="mt-2 text-sm text-dim">One to two weeks</p>
+            <p class="mt-5 leading-7 text-muted">
+              I map how the work is done now, find where a model realistically helps and where it
+              does not, and rank the opportunities by value against difficulty.
+            </p>
+            <p class="mt-5 text-sm leading-6 text-dim">
+              <span class="font-semibold text-fg">You get:</span> a workflow map, a ranked opportunity
+              list with honest effort estimates, a recommended architecture, and a build plan you can
+              execute with me or without me.
+            </p>
+          </article>
+
+          <article class="panel flex flex-col rounded-2xl border border-edge/70 p-8">
+            <div class="flex items-center justify-between gap-3">
+              <p class="eyebrow text-[.65rem] text-voice">Build</p>
+              <span class="rounded-full border border-edge px-3 py-1 text-[.7rem] font-medium text-muted">Scoped</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-fg">Implementation sprint</h3>
+            <p class="mt-2 text-sm text-dim">Four to eight weeks</p>
+            <p class="mt-5 leading-7 text-muted">
+              One workflow taken all the way into production, with the evaluation suite, the
+              permissions, and the approval gates that make it safe to leave running.
+            </p>
+            <p class="mt-5 text-sm leading-6 text-dim">
+              <span class="font-semibold text-fg">You get:</span> a working system in your
+              infrastructure, source and tests in your repositories, runbook documentation, and a
+              handover session with the people who will operate it.
+            </p>
+          </article>
+
+          <article class="panel flex flex-col rounded-2xl border border-edge/70 p-8">
+            <div class="flex items-center justify-between gap-3">
+              <p class="eyebrow text-[.65rem] text-voice">Operate</p>
+              <span class="rounded-full border border-edge px-3 py-1 text-[.7rem] font-medium text-muted">Monthly</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-fg">Ongoing AI engineering</h3>
+            <p class="mt-2 text-sm text-dim">Retained, rolling</p>
+            <p class="mt-5 leading-7 text-muted">
+              For teams running agentic systems in production who want someone accountable when the
+              model, the pricing, or the workflow changes underneath them.
+            </p>
+            <p class="mt-5 text-sm leading-6 text-dim">
+              <span class="font-semibold text-fg">You get:</span> continuous extension and
+              maintenance, evaluation and cost monitoring, model migrations handled, and an
+              engineer who already knows the system.
+            </p>
+          </article>
+
+        </div>
+
+        <p class="mt-10 max-w-3xl text-sm leading-7 text-dim">
+          Pricing is quoted per engagement after a short scoping conversation — there is no useful
+          honest number before knowing what the work is. Tell me the workflow and I will tell you
+          whether it is worth automating at all.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────── contact -->
+    <section id="contact" class="field border-t border-edge/50 px-5 py-20 md:py-28">
+      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_30rem] lg:items-start">
+        <div>
+          <p class="eyebrow text-xs text-accent">Contact</p>
+          <h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">Describe the workflow you want to stop doing by hand.</h2>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">
+            The most useful first message is a concrete one: what the process is, who runs it today,
+            how often, and what breaks when it goes wrong. I reply personally, usually within a
+            business day.
+          </p>
+          <p class="mt-8 leading-8 text-muted">
+            Prefer email? <a class="font-medium text-accent underline decoration-accent/40 underline-offset-4 transition hover:text-fg" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a>
+          </p>
+        </div>
+
+        <form id="contact-form" class="panel rounded-2xl border border-edge/70 p-8" action="/contact" method="post" novalidate>
+          <div>
+            <label class="block text-sm font-medium text-fg" for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required maxlength="200"
+                   class="mt-2 w-full rounded-md border border-edge bg-ink/60 px-3 py-3 text-fg outline-none transition placeholder:text-dim focus:border-accent/70 focus:ring-2 focus:ring-accent/30">
+          </div>
+          <div class="mt-5">
+            <label class="block text-sm font-medium text-fg" for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="200"
+                   class="mt-2 w-full rounded-md border border-edge bg-ink/60 px-3 py-3 text-fg outline-none transition placeholder:text-dim focus:border-accent/70 focus:ring-2 focus:ring-accent/30">
+          </div>
+          <div class="mt-5">
+            <label class="block text-sm font-medium text-fg" for="company">Company <span class="font-normal text-dim">(optional)</span></label>
+            <input id="company" name="company" type="text" autocomplete="organization" maxlength="200"
+                   class="mt-2 w-full rounded-md border border-edge bg-ink/60 px-3 py-3 text-fg outline-none transition placeholder:text-dim focus:border-accent/70 focus:ring-2 focus:ring-accent/30">
+          </div>
+          <div class="mt-5">
+            <label class="block text-sm font-medium text-fg" for="message">What are you trying to build or automate?</label>
+            <textarea id="message" name="message" rows="5" required maxlength="4000"
+                      class="mt-2 w-full rounded-md border border-edge bg-ink/60 px-3 py-3 text-fg outline-none transition placeholder:text-dim focus:border-accent/70 focus:ring-2 focus:ring-accent/30"></textarea>
+          </div>
+          <button type="submit" class="mt-7 w-full rounded-md bg-accent px-4 py-3 text-sm font-semibold text-ink transition hover:bg-accent/85 disabled:opacity-60">Send</button>
+          <p id="form-status" class="mt-4 text-sm leading-6 text-dim" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
+
   </main>
 
-  <footer class="border-t border-white/10 bg-slate-950">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-      <p>&copy; 2026 ControlStackAI LLC · Wyoming · <a class="hover:text-white" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></p>
-      <div class="flex gap-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
+  <footer class="border-t border-edge/50 bg-ink">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-10 text-sm text-dim md:flex-row md:items-center md:justify-between">
+      <p>&copy; 2026 ControlStackAI LLC · Wyoming · <a class="transition hover:text-fg" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></p>
+      <div class="flex gap-5">
+        <a href="/about.html" class="transition hover:text-fg">About</a>
+        <a href="/contact.html" class="transition hover:text-fg">Contact</a>
+        <a href="/privacy.html" class="transition hover:text-fg">Privacy</a>
+        <a href="/terms.html" class="transition hover:text-fg">Terms</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Progressive enhancement: the form posts normally without JS.
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('form-status');
+      if (!form || !status) return;
+
+      form.addEventListener('submit', function (event) {
+        if (!form.reportValidity()) return;
+        event.preventDefault();
+
+        var button = form.querySelector('button[type=submit]');
+        button.disabled = true;
+        status.className = 'mt-4 text-sm leading-6 text-dim';
+        status.textContent = 'Sending…';
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.name.value,
+            email: form.email.value,
+            company: form.company.value,
+            message: form.message.value
+          })
+        }).then(function (response) {
+          if (!response.ok) throw new Error(response.status);
+          form.reset();
+          status.className = 'mt-4 text-sm leading-6 text-ok';
+          status.textContent = 'Sent. I will reply personally, usually within a business day.';
+        }).catch(function () {
+          status.className = 'mt-4 text-sm leading-6 text-warn';
+          status.innerHTML = 'That did not go through. Email me directly at ' +
+            '<a class="text-accent underline" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a>.';
+        }).finally(function () {
+          button.disabled = false;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

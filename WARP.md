@@ -8,6 +8,11 @@ This is a static HTML website for ControlStackAI built to deploy on Cloudflare P
 
 ## Architecture
 
+### Positioning
+The site sells services — AI application development, agent harness integration, and
+workflow implementation — not a product. Copy should stay concrete and public-safe: no
+client names, no NDA material, no screenshots of client work.
+
 ### Static Website Structure
 - **Frontend**: Static HTML pages with Tailwind CSS via CDN
 - **Styling**: Custom Tailwind configuration in `styles/tailwind-cdn.js` with brand colors (ink, accent, etc.)
@@ -16,19 +21,32 @@ This is a static HTML website for ControlStackAI built to deploy on Cloudflare P
 - **Security**: HTTP security headers configured in `_headers`
 
 ### Key Files
-- `index.html` - Homepage with hero section and service overview
-- `services.html`, `about.html`, `contact.html` - Additional pages
+- `index.html` - Homepage: hero, product film, services, method, engagements, contact
+- `about.html`, `contact.html` - Additional pages
+- `assets/video/agentic-os-demo.mp4` - the Agentic OS film, public cut, re-encoded for web
+  delivery from `~/projects/Personal/agentic-os-demo/out/agentic-os-demo-public-master.mp4`.
+  Only the public cut may ever ship; the client cut names a real session.
 - `functions/contact.ts` - Cloudflare Pages Function handling POST /contact endpoint
 - `schema/schema.sql` - D1 database schema for contact leads
 - `styles/tailwind-cdn.js` - Tailwind CSS configuration with custom colors
 - `_headers` - Security headers for all routes
 
 ### Design System
-The site uses a dark theme with the following custom colors:
-- `ink` (#0C0F14) - Primary background
-- `accent` (#B4DCFF) - Primary accent/CTA color
-- `slate-*` variants for text hierarchy
-- Glass morphism effects using backdrop-blur
+Dark theme. The palette is lifted from the Agentic OS Center Island
+(`controlstackai-nixos/modules/quickshell/alina-bar/shell.qml`) by way of the product
+film's `src/theme.ts`, so the site and the system shown in the homepage film read as one
+brand. Tokens live in `styles/tailwind-cdn.js`:
+
+- `ink` (#07111f) - page background
+- `surface` (#0d1b2e) - panels
+- `edge` (#24466f) - borders
+- `dim` (#6b82a3) - de-emphasised text (lifted from the island's #4a6285, which fails WCAG AA as body copy)
+- `muted` (#a3b8d4) - body copy
+- `fg` (#dce7f7) - headings
+- `accent` (#6cb0ff) - links and primary actions; use `text-ink` on accent backgrounds, not white
+- `voice` (#a67df3) - the realtime voice affordance, used for eyebrow labels
+- Type: Inter + JetBrains Mono, loaded from Google Fonts
+- Glass panels via `.panel` / `.panel-solid` with backdrop-blur
 
 ## Common Development Commands
 

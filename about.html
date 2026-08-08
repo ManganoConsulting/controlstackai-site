@@ -3,41 +3,129 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About - ControlStackAI</title>
-  <meta name="description" content="ControlStackAI LLC builds agent infrastructure for regulated engineering teams.">
+  <title>About — ControlStackAI</title>
+  <meta name="description" content="ControlStackAI is the engineering practice of Matthew Mangano: aerospace engineer building AI systems that run in production.">
   <link rel="canonical" href="https://controlstackai.com/about.html">
   <link rel="icon" href="/assets/icon-neural-grid.svg" type="image/svg+xml">
+  <meta property="og:title" content="About — ControlStackAI">
+  <meta property="og:description" content="The engineering practice of Matthew Mangano.">
+  <meta property="og:image" content="https://controlstackai.com/assets/video/agentic-os-demo-poster.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/styles/tailwind-cdn.js"></script>
-  <style>body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.panel{background:rgba(255,255,255,.035)}</style>
+  <style>
+    html{scroll-behavior:smooth}
+    body{background:#07111f}
+    .field{position:relative;isolation:isolate}
+    .field::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:radial-gradient(60rem 34rem at 82% -12%, rgba(166,125,243,.15), transparent 60%),
+                 radial-gradient(52rem 30rem at 5% 8%, rgba(108,176,255,.11), transparent 60%);}
+    .panel{background:rgba(255,255,255,.028);backdrop-filter:blur(14px)}
+    .eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase}
+    .display{letter-spacing:-.02em}
+  </style>
 </head>
-<body class="bg-ink text-white antialiased">
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/90 backdrop-blur">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-      <a href="/" class="flex items-center gap-3"><img src="/assets/icon-neural-grid.svg" class="h-8 w-8 rounded-sm" alt=""><span class="text-sm font-semibold">ControlStackAI</span></a>
-      <div class="flex items-center gap-5 text-sm text-slate-300"><a href="/manifesto.html" class="hover:text-white">Manifesto</a><a href="/#early-access" class="rounded-md bg-accent px-3 py-2 font-medium text-white hover:bg-accent/90">Early access</a></div>
+<body class="bg-ink font-sans text-muted antialiased selection:bg-voice/40 selection:text-white">
+
+  <header class="sticky top-0 z-50 border-b border-edge/50 bg-ink/85 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4" aria-label="Primary">
+      <a href="/" class="flex items-center gap-3" aria-label="ControlStackAI home">
+        <img src="/assets/icon-neural-grid.svg" class="h-8 w-8 rounded-md" alt="">
+        <span class="text-sm font-semibold tracking-tight text-fg">ControlStackAI</span>
+      </a>
+      <div class="hidden items-center gap-7 text-sm text-muted md:flex">
+        <a href="/#demo" class="transition hover:text-fg">Demo</a>
+        <a href="/#services" class="transition hover:text-fg">Services</a>
+        <a href="/#method" class="transition hover:text-fg">Method</a>
+        <a href="/#engagements" class="transition hover:text-fg">Engagements</a>
+        <a href="/about.html" class="text-fg">About</a>
+      </div>
+      <a href="/#contact" class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a>
     </nav>
   </header>
-  <main class="mx-auto max-w-5xl px-5 py-20">
-    <p class="text-sm font-medium uppercase tracking-[.2em] text-accent">About</p>
-    <h1 class="mt-4 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">Agent infrastructure for engineering teams that cannot treat AI as shadow IT.</h1>
-    <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_22rem]">
-      <div class="space-y-6 leading-8 text-slate-300">
-        <p>ControlStackAI LLC is a Wyoming company building an agent platform for engineering teams in regulated industries. The platform is designed for work that needs tool access, reviewability, long-running execution, and deployment inside customer-controlled infrastructure.</p>
-        <p>The product direction comes from a simple premise: engineering teams will not get real leverage from isolated chat tools. They need agent teams that can operate existing toolchains, create durable artifacts, and leave an audit trail.</p>
-        <p>ControlStackAI focuses on the platform layer: agent runtime, engineering-tool integrations, provider-agnostic inference, governance, and deployment models for on-prem, VPC, and air-gapped environments.</p>
+
+  <main class="field px-5 py-20 md:py-28">
+   <div class="mx-auto max-w-5xl">
+    <p class="eyebrow text-xs text-accent">About</p>
+    <h1 class="display mt-6 max-w-4xl text-4xl font-semibold leading-[1.05] text-fg md:text-6xl">
+      A practice, not an agency.
+    </h1>
+    <p class="mt-8 max-w-3xl text-lg leading-8 text-muted md:text-xl md:leading-9">
+      ControlStackAI is how Matthew Mangano takes on AI development work. One engineer,
+      accountable for the result, building systems that keep working after the invoice clears.
+    </p>
+
+    <div class="mt-16 grid gap-14 lg:grid-cols-[1fr_20rem] lg:items-start">
+      <div class="space-y-7 text-lg leading-8 text-muted">
+        <p>
+          I trained and work as an aerospace engineer. Aircraft 6-DOF simulation, flight dynamics,
+          control law development, avionics, and the verification work that has to survive review by
+          people whose job is to find what you missed. In that field a model that produces plausible
+          numbers is not an achievement — it is a liability until you have shown why the numbers are
+          right.
+        </p>
+        <p>
+          That is the habit I brought to AI systems, and it turns out to be the thing most of this
+          industry is missing. The hard part of an agent is not getting it to respond impressively.
+          It is defining what correct means for the task, instrumenting it so you can tell when it
+          drifts, bounding what it is allowed to touch, and deciding which actions a human still has
+          to sign off on.
+        </p>
+        <p>
+          I also build and operate my own agentic infrastructure — a fleet of specialist agents on a
+          declaratively managed Linux host, with persistent memory across sessions, scheduled
+          autonomous work, voice control integrated into the desktop itself, and approval gates on
+          anything that leaves the machine.
+          <a class="font-medium text-accent underline decoration-accent/40 underline-offset-4 transition hover:text-fg" href="/#demo">The film on the homepage</a>
+          is that system, recorded live. It is not a product I sell. It is where I find the failure
+          modes before they show up in a client's project.
+        </p>
+        <p>
+          Work comes in three shapes: building AI applications, integrating agent harnesses into
+          existing engineering environments, and implementing workflows that people currently run by
+          hand. The common thread is that something has to actually be in production at the end.
+        </p>
+        <h2 class="display pt-4 text-2xl font-semibold text-fg md:text-3xl">How I work with clients</h2>
+        <p>
+          You deal with me directly, start to finish. Engagements begin small — usually a fixed-fee
+          audit — so you can judge the work before committing to a build. Everything I produce goes
+          into your repositories under your ownership: code, prompts, evaluations, documentation. No
+          proprietary runtime you have to keep paying me to license.
+        </p>
+        <p>
+          Client work stays confidential by default. It does not become a case study, a screenshot,
+          or a conference talk. The only system I demonstrate publicly is my own.
+        </p>
       </div>
-      <aside class="panel border border-white/10 p-6">
-        <h2 class="text-lg font-semibold">Company</h2>
-        <dl class="mt-5 space-y-4 text-sm text-slate-300">
-          <div><dt class="text-slate-500">Legal name</dt><dd>ControlStackAI LLC</dd></div>
-          <div><dt class="text-slate-500">Jurisdiction</dt><dd>Wyoming</dd></div>
-          <div><dt class="text-slate-500">Filing</dt><dd>2026-001983812</dd></div>
-          <div><dt class="text-slate-500">Contact</dt><dd><a class="text-accent hover:text-white" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></dd></div>
+
+      <aside class="panel rounded-2xl border border-edge/70 p-7">
+        <h2 class="eyebrow text-[.65rem] text-voice">Company</h2>
+        <dl class="mt-6 space-y-5 text-sm leading-6">
+          <div><dt class="text-dim">Legal name</dt><dd class="text-fg">ControlStackAI LLC</dd></div>
+          <div><dt class="text-dim">Jurisdiction</dt><dd class="text-fg">Wyoming, United States</dd></div>
+          <div><dt class="text-dim">Filing</dt><dd class="text-fg">2026-001983812</dd></div>
+          <div><dt class="text-dim">Principal</dt><dd class="text-fg">Matthew Mangano</dd></div>
+          <div><dt class="text-dim">Contact</dt><dd><a class="text-accent underline decoration-accent/40 underline-offset-4 transition hover:text-fg" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></dd></div>
         </dl>
+        <a href="/#contact" class="mt-8 inline-flex w-full justify-center rounded-md bg-accent px-4 py-3 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a>
       </aside>
     </div>
+   </div>
   </main>
-  <footer class="border-t border-white/10"><div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p>&copy; 2026 ControlStackAI LLC · Wyoming · <a class="hover:text-white" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></p><div class="flex gap-4"><a href="/privacy.html" class="hover:text-white">Privacy</a><a href="/terms.html" class="hover:text-white">Terms</a></div></div></footer>
+
+  <footer class="border-t border-edge/50 bg-ink">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-10 text-sm text-dim md:flex-row md:items-center md:justify-between">
+      <p>&copy; 2026 ControlStackAI LLC · Wyoming · <a class="transition hover:text-fg" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></p>
+      <div class="flex gap-5">
+        <a href="/about.html" class="transition hover:text-fg">About</a>
+        <a href="/contact.html" class="transition hover:text-fg">Contact</a>
+        <a href="/privacy.html" class="transition hover:text-fg">Privacy</a>
+        <a href="/terms.html" class="transition hover:text-fg">Terms</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
