@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Not found — ControlStackAI</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/icon-neural-grid.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/styles/tailwind-cdn.js"></script>
+  <style>
+    body{background:#07111f}
+    .field{position:relative;isolation:isolate}
+    .field::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:radial-gradient(60rem 34rem at 78% -12%, rgba(166,125,243,.15), transparent 60%),
+                 radial-gradient(52rem 30rem at 5% 8%, rgba(108,176,255,.11), transparent 60%);}
+    .eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase}
+    .display{letter-spacing:-.02em}
+  </style>
+</head>
+<body class="bg-ink font-sans text-muted antialiased selection:bg-voice/40 selection:text-white">
+
+  <header class="border-b border-edge/50 bg-ink/85 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4" aria-label="Primary">
+      <a href="/" class="flex items-center gap-3" aria-label="ControlStackAI home">
+        <img src="/assets/icon-neural-grid.svg" class="h-8 w-8 rounded-md" alt="">
+        <span class="text-sm font-semibold tracking-tight text-fg">ControlStackAI</span>
+      </a>
+      <a href="/#contact" class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a>
+    </nav>
+  </header>
+
+  <main class="field px-5 py-28 md:py-36">
+    <div class="mx-auto max-w-3xl">
+      <p class="eyebrow text-xs text-accent">404</p>
+      <h1 class="display mt-6 text-4xl font-semibold leading-[1.05] text-fg md:text-6xl">That page is not here.</h1>
+      <p class="mt-8 text-lg leading-8 text-muted">
+        It may have moved, or it may be something I retired. Either way, the useful parts of the
+        site are one click away.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="/" class="inline-flex rounded-md bg-accent px-6 py-3 text-sm font-semibold text-ink transition hover:bg-accent/85">Home</a>
+        <a href="/#services" class="inline-flex rounded-md border border-edge bg-white/[.03] px-6 py-3 text-sm font-semibold text-fg transition hover:border-accent/60">Services</a>
+        <a href="/#contact" class="inline-flex rounded-md border border-edge bg-white/[.03] px-6 py-3 text-sm font-semibold text-fg transition hover:border-accent/60">Contact</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-edge/50 bg-ink">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-10 text-sm text-dim md:flex-row md:items-center md:justify-between">
+      <p>&copy; 2026 ControlStackAI LLC · Wyoming · <a class="transition hover:text-fg" href="mailto:hello@controlstackai.com">hello@controlstackai.com</a></p>
+      <div class="flex gap-5">
+        <a href="/about" class="transition hover:text-fg">About</a>
+        <a href="/contact" class="transition hover:text-fg">Contact</a>
+        <a href="/privacy" class="transition hover:text-fg">Privacy</a>
+        <a href="/terms" class="transition hover:text-fg">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

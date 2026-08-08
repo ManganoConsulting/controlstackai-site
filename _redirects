@@ -1,0 +1,6 @@
+# Retired pages. Redline is an archived product; the manifesto was never written.
+# 301 rather than 404 so anything that linked or indexed them lands somewhere useful.
+/redline.html    /  301
+/redline         /  301
+/manifesto.html  /  301
+/manifesto       /  301
