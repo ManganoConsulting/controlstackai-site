@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Harness — Verified AI execution | ControlStackAI</title>
+  <meta name="description" content="A ControlStackAI case study: a provider-independent agent harness that turns work into contracts, verifies results independently, and produces signed evidence instead of another transcript.">
+  <link rel="canonical" href="https://controlstackai.com/agent-harness">
+  <link rel="icon" href="/assets/icon-neural-grid.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://controlstackai.com/agent-harness">
+  <meta property="og:title" content="Agent Harness — Verified AI execution">
+  <meta property="og:description" content="Contract in. Independent verification. Signed evidence out. A system built by ControlStackAI.">
+  <meta property="og:image" content="https://controlstackai.com/assets/video/agentic-os-demo-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agent Harness — Verified AI execution">
+  <meta name="twitter:description" content="A provider-independent runtime built to prove agent work, not merely record it.">
+  <meta name="twitter:image" content="https://controlstackai.com/assets/video/agentic-os-demo-poster.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/styles/tailwind-cdn.js"></script>
+  <style>
+    html{scroll-behavior:smooth}body{background:#07111f}
+    .field{position:relative;isolation:isolate}.field::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(68rem 38rem at 82% -8%,rgba(166,125,243,.17),transparent 60%),radial-gradient(52rem 30rem at 4% 14%,rgba(108,176,255,.12),transparent 60%)}
+    .panel{background:rgba(255,255,255,.028);backdrop-filter:blur(14px)}.panel-solid{background:rgba(13,27,46,.78);backdrop-filter:blur(14px)}
+    .eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase}.display{letter-spacing:-.02em}
+    .rule{height:1px;background:linear-gradient(90deg,transparent,rgba(108,176,255,.5),rgba(166,125,243,.4),transparent)}.flow-step{position:relative}
+    @media (min-width:1024px){.flow-step:not(:last-child)::after{content:"\2192";position:absolute;right:-1.25rem;top:50%;transform:translateY(-50%);font:500 1.2rem 'JetBrains Mono',monospace;color:#6cb0ff}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body class="bg-ink font-sans text-muted antialiased selection:bg-voice/40 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm font-semibold text-ink">Skip to content</a>
+  <header class="sticky top-0 z-50 border-b border-edge/50 bg-ink/85 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4" aria-label="Primary">
+      <a href="/" class="flex items-center gap-3" aria-label="ControlStackAI home"><img src="/assets/icon-neural-grid.svg" class="h-8 w-8 rounded-md" alt=""><span class="text-sm font-semibold tracking-tight text-fg">ControlStackAI</span></a>
+      <div class="hidden items-center gap-7 text-sm text-muted md:flex"><a href="/#services" class="transition hover:text-fg">Services</a><a href="/agent-harness" class="text-fg">Agent Harness</a><a href="/#method" class="transition hover:text-fg">Method</a><a href="/about" class="transition hover:text-fg">About</a></div>
+      <a href="/contact" class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="field px-5 pb-20 pt-16 md:pb-28 md:pt-24"><div class="mx-auto max-w-7xl">
+      <p class="eyebrow text-xs text-accent">Project case study · Codename Truss</p>
+      <h1 class="display mt-6 max-w-6xl text-4xl font-semibold leading-[1.04] text-fg sm:text-5xl md:text-6xl lg:text-7xl">Agent work you can verify<br class="hidden md:block"> without reading the transcript.</h1>
+      <p class="mt-8 max-w-3xl text-lg leading-8 text-muted md:text-xl md:leading-9">Models are increasingly capable of doing the work. The harder problem is deciding whether the result deserves your trust. I built a provider-independent agent harness that accepts a contract, executes it durably, verifies the outcome outside the executor, and returns signed evidence.</p>
+      <div class="mt-10 flex flex-wrap gap-3"><a href="#architecture" class="rounded-md bg-accent px-6 py-3 text-sm font-semibold text-ink transition hover:bg-accent/85">See how it works</a><a href="/contact" class="rounded-md border border-edge bg-white/[.03] px-6 py-3 text-sm font-semibold text-fg transition hover:border-accent/60">Build a governed workflow</a></div>
+      <div class="rule mt-16"></div><dl class="mt-10 grid gap-8 sm:grid-cols-3"><div><dt class="eyebrow text-[.65rem] text-voice">Unit of work</dt><dd class="mt-3 text-lg font-medium text-fg">A contract, not a prompt</dd></div><div><dt class="eyebrow text-[.65rem] text-voice">Acceptance</dt><dd class="mt-3 text-lg font-medium text-fg">Independent checks and review</dd></div><div><dt class="eyebrow text-[.65rem] text-voice">Output</dt><dd class="mt-3 text-lg font-medium text-fg">A signed, portable verdict</dd></div></dl>
+    </div></section>
+
+    <section id="architecture" class="border-y border-edge/50 px-5 py-20 md:py-28"><div class="mx-auto max-w-7xl">
+      <div class="max-w-3xl"><p class="eyebrow text-xs text-accent">The execution path</p><h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">Contract in. Proof out.</h2><p class="mt-6 text-lg leading-8 text-muted">The executor never grades its own homework. Completion and acceptance are separate jobs with separate evidence.</p></div>
+      <ol class="mt-14 grid gap-5 lg:grid-cols-4 lg:gap-10">
+        <li class="flow-step panel-solid rounded-2xl border border-edge/70 p-7"><p class="font-mono text-sm text-voice">01 / CONTRACT</p><h3 class="mt-5 text-xl font-semibold text-fg">Define done first</h3><p class="mt-3 leading-7 text-muted">Intent, machine-checkable completion criteria, reviewer criteria, budget, and constraints are fixed before execution.</p></li>
+        <li class="flow-step panel-solid rounded-2xl border border-edge/70 p-7"><p class="font-mono text-sm text-voice">02 / EXECUTE</p><h3 class="mt-5 text-xl font-semibold text-fg">Use the right worker</h3><p class="mt-3 leading-7 text-muted">Run an in-process model, a local model, or delegate to an existing coding-agent subscription behind one contract.</p></li>
+        <li class="flow-step panel-solid rounded-2xl border border-edge/70 p-7"><p class="font-mono text-sm text-voice">03 / VERIFY</p><h3 class="mt-5 text-xl font-semibold text-fg">Check independently</h3><p class="mt-3 leading-7 text-muted">The harness runs deterministic checks and adversarial review in contexts separate from the executor.</p></li>
+        <li class="flow-step panel-solid rounded-2xl border border-edge/70 p-7"><p class="font-mono text-sm text-voice">04 / VERDICT</p><h3 class="mt-5 text-xl font-semibold text-fg">Keep the receipt</h3><p class="mt-3 leading-7 text-muted">The run, evidence, and verdict live in a hash-chained, signed ledger that can be verified later.</p></li>
+      </ol>
+    </div></section>
+
+    <section class="field px-5 py-20 md:py-28"><div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
+      <div><p class="eyebrow text-xs text-accent">Why build it</p><h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">The bottleneck moved.</h2><p class="mt-6 text-lg leading-8 text-muted">The industry keeps optimizing how agents generate. This project starts from a different premise: as generation gets better, governance becomes the limiting system.</p><blockquote class="mt-8 border-l-2 border-voice pl-6 text-xl leading-8 text-fg">Trust should be an artifact of the run, not a feeling after reading it.</blockquote></div>
+      <div class="grid gap-px overflow-hidden rounded-2xl border border-edge/70 sm:grid-cols-2"><article class="panel-solid p-7"><h3 class="text-lg font-semibold text-fg">Durable by design</h3><p class="mt-3 leading-7 text-muted">State lives in a journal, not only in memory. Work can suspend, survive a crash, and resume without repeating completed steps.</p></article><article class="panel-solid p-7"><h3 class="text-lg font-semibold text-fg">Provider-independent core</h3><p class="mt-3 leading-7 text-muted">The runtime does not belong to one model vendor. Provider and executor adapters can change without changing the trust path.</p></article><article class="panel-solid p-7"><h3 class="text-lg font-semibold text-fg">Policy at the boundary</h3><p class="mt-3 leading-7 text-muted">Budgets, deadlines, tool permissions, and filesystem scope are enforced where actions happen—not left as suggestions in a prompt.</p></article><article class="panel-solid p-7"><h3 class="text-lg font-semibold text-fg">Private evidence</h3><p class="mt-3 leading-7 text-muted">Run content stays local. Tamper evidence can be anchored externally using hashes without publishing the underlying work.</p></article></div>
+    </div></section>
+
+    <section class="border-y border-edge/50 px-5 py-20 md:py-28"><div class="mx-auto max-w-7xl">
+      <div class="max-w-3xl"><p class="eyebrow text-xs text-accent">What this demonstrates</p><h2 class="display mt-5 text-3xl font-semibold leading-tight text-fg md:text-5xl">A working reference architecture for governed agents.</h2><p class="mt-6 text-lg leading-8 text-muted">This is an engineering project, not a renamed chat interface. Its components map directly to the hard parts of deploying agents inside real organizations.</p></div>
+      <ul class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <li class="panel rounded-2xl border border-edge/70 p-7"><p class="eyebrow text-[.65rem] text-voice">Orchestration</p><p class="mt-4 leading-7 text-muted">One contract can govern different executors while keeping budgets, constraints, and acceptance criteria consistent.</p></li>
+        <li class="panel rounded-2xl border border-edge/70 p-7"><p class="eyebrow text-[.65rem] text-voice">Verification</p><p class="mt-4 leading-7 text-muted">Deterministic checks and independent review produce evidence tied to the original definition of done.</p></li>
+        <li class="panel rounded-2xl border border-edge/70 p-7"><p class="eyebrow text-[.65rem] text-voice">Provenance</p><p class="mt-4 leading-7 text-muted">Signed, hash-chained events make the history inspectable and make later tampering detectable.</p></li>
+        <li class="panel rounded-2xl border border-edge/70 p-7"><p class="eyebrow text-[.65rem] text-voice">Local-first operation</p><p class="mt-4 leading-7 text-muted">Local and open models can stay inside the company boundary, with frontier endpoints used only when the task requires them.</p></li>
+        <li class="panel rounded-2xl border border-edge/70 p-7"><p class="eyebrow text-[.65rem] text-voice">Evaluation</p><p class="mt-4 leading-7 text-muted">Paired runs and benchmark adapters measure whether changes improve pass rate, cost, and user outcomes.</p></li>
+        <li class="panel rounded-2xl border border-edge/70 p-7"><p class="eyebrow text-[.65rem] text-voice">Integration seams</p><p class="mt-4 leading-7 text-muted">Providers, tools, context sources, and event consumers attach through explicit boundaries instead of leaking into the core loop.</p></li>
+      </ul>
+    </div></section>
+
+    <section class="field px-5 py-20 md:py-28"><div class="mx-auto max-w-5xl rounded-2xl border border-edge/70 bg-white/[.03] p-8 text-center backdrop-blur md:p-14"><p class="eyebrow text-xs text-accent">Bring the pattern to your workflow</p><h2 class="display mx-auto mt-5 max-w-3xl text-3xl font-semibold leading-tight text-fg md:text-5xl">You may not need this harness. You probably need these guarantees.</h2><p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">I can apply the same contract, policy, verification, and audit architecture to the AI workflow your team is actually trying to ship.</p><a href="/contact" class="mt-9 inline-flex rounded-md bg-accent px-6 py-3 text-sm font-semibold text-ink transition hover:bg-accent/85">Start a project</a></div></section>
+  </main>
+  <footer class="border-t border-edge/50 bg-ink"><div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-dim sm:flex-row sm:items-center sm:justify-between"><p>&copy; 2026 ControlStackAI LLC.</p><div class="flex flex-wrap gap-x-5 gap-y-2"><a href="/agent-harness" class="transition hover:text-fg">Agent Harness</a><a href="/about" class="transition hover:text-fg">About</a><a href="/contact" class="transition hover:text-fg">Contact</a><a href="/privacy" class="transition hover:text-fg">Privacy</a><a href="/terms" class="transition hover:text-fg">Terms</a></div></div></footer>
+</body>
+</html>
