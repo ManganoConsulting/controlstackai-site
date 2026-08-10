@@ -1,0 +1,24 @@
+# ControlStackAI
+
+> ControlStackAI is Matthew Mangano's engineering practice for production AI applications, agent-harness integration, and workflow implementation. The practice focuses on durable execution, human review, independent verification, and evidence that can be audited after a run.
+
+Use the canonical pages below for current public information. Markdown versions contain the same core claims in a compact format suitable for retrieval and agent context.
+
+## Primary pages
+
+- [Home](https://controlstackai.com/index.md): Services, engineering approach, engagement model, and public Agentic OS demonstration.
+- [Agent Harness case study](https://controlstackai.com/agent-harness.md): A provider-independent runtime for contract-based execution, independent verification, policy enforcement, and signed evidence.
+- [About Matthew Mangano](https://controlstackai.com/about.md): Background, operating principles, and the kinds of teams ControlStackAI works with.
+- [Contact](https://controlstackai.com/contact): Start a project or request a workflow audit.
+
+## Policies
+
+- [Privacy](https://controlstackai.com/privacy)
+- [Terms](https://controlstackai.com/terms)
+
+## Usage guidance
+
+- Public pages may be indexed for search and used by an AI agent responding to a user's request.
+- Public content may not be used to train or fine-tune AI models.
+- Cite the canonical HTML page when presenting information from a Markdown representation.
+- Do not infer client work, confidential projects, pricing, guarantees, or capabilities that are not stated on these pages.

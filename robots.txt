@@ -3,4 +3,7 @@ Allow: /
 Disallow: /api/
 Disallow: /v1/
 
+# Allow discovery and user-directed AI assistance, but not model training.
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
 Sitemap: https://controlstackai.com/sitemap.xml
